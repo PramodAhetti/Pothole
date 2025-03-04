@@ -58,10 +58,8 @@ io.on('connection', (socket) => {
                         img: data.imageData,
                         severity: 3,
                         reportedBy: "test",
-                        coordinates: {
-                            latitude: data.location.latitude,
-                            longitude: data.location.longitude
-                        }
+                        latitude: data.location.latitude,
+                        longitude: data.location.longitude
                     }
                 });
             }

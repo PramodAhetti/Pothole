@@ -8,17 +8,12 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
-
 model Pothole {
-  id           String     @id @default(auto()) @map("_id") @db.ObjectId
-  coordinates  Coordinates
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  latitude     Float
+  longitude    Float
   severity     Int
-  dateReported DateTime  @default(now())
+  dateReported DateTime @default(now())
   reportedBy   String
-  img String    // Optional: Store the address or city of the pothole
-}
-
-type Coordinates {
-  latitude  Float
-  longitude Float
+  img          String
 }

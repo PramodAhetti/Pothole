@@ -54,14 +54,10 @@ io.on('connection', (socket) => {
           await prisma.pothole.create({
             data:{
               img:data.imageData,
-              severity:3,
+              severity:response.data.predicted_classes.length,
               reportedBy:"test",
-              coordinates:
-                {
-                  latitude: data.location.latitude,
-                  longitude: data.location.longitude
-                
-              }
+              latitude: data.location.latitude,
+              longitude: data.location.longitude
             }
           });
         } 
